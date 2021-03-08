@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GenericsIntro
+﻿namespace GenericsIntro
 {
     class Program
     {
@@ -8,6 +6,10 @@ namespace GenericsIntro
         {
             MyList<string> names = new MyList<string>();
             names.Add("Emre");
+            names.Write();
+            names.Add("Alp");
+
+            
         }
     }
 }
