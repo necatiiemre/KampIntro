@@ -35,14 +35,18 @@ namespace OOP3
             ICreditManager mortgageCreditManager = new MortgageCreditManager();
 
             ApplicationManager applicationManager = new ApplicationManager();
-            applicationManager.MakeApplication(carCreditManager, new DataBaseLoggerService());
-            applicationManager.MakeApplication(personalFinanceCredit, new FileLoggerService());
-            applicationManager.MakeApplication(mortgageCreditManager, new DataBaseLoggerService());
+            //applicationManager.MakeApplication(carCreditManager, new DataBaseLoggerService());
+            //applicationManager.MakeApplication(personalFinanceCredit, new FileLoggerService());
+            //applicationManager.MakeApplication(mortgageCreditManager, new DataBaseLoggerService());
 
             List<ICreditManager> credits = new List<ICreditManager>() {mortgageCreditManager , carCreditManager };
             //applicationManager.CreditPreNotificaion(credits);
 
- 
+            applicationManager.MakeApplication(carCreditManager, new List<ILoggerService> { new DataBaseLoggerService(),new FileLoggerService()});
+            applicationManager.MakeApplication(personalFinanceCredit, new List<ILoggerService> { new DataBaseLoggerService(), new FileLoggerService()});
+            applicationManager.MakeApplication(mortgageCreditManager, new List<ILoggerService> { new DataBaseLoggerService(), new FileLoggerService()});
+
+
         }
     }
 }

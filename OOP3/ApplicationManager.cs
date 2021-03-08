@@ -7,10 +7,13 @@ namespace OOP3
     class ApplicationManager
     {
         //Method injection
-        public void MakeApplication(ICreditManager creditManager , ILoggerService loggerService)
+        public void MakeApplication(ICreditManager creditManager , List<ILoggerService> loggerServices)
         {
             creditManager.Calculate();
-            loggerService.Log();
+            foreach (var loggerService in loggerServices)
+            {
+                loggerService.Log();
+            }
         }
 
         public void CreditPreNotificaion(List<ICreditManager> credits)
